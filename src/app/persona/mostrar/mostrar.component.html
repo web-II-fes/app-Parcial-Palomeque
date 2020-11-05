@@ -1,0 +1,52 @@
+<mat-card>
+
+    <div class="container" >
+        <h1>Listado de Pedidos</h1>
+    
+    
+        <button mat-raised-button color="primary" [routerLink]="'/crear-component/'">Crear pedido</button>
+    
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="nombreCliente">
+                <th mat-header-cell *matHeaderCellDef> Nombre del Cliente </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombreCliente| titlecase}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="direccionEntrega">
+                <th mat-header-cell *matHeaderCellDef> Direccion del Pedido </th>
+                <td mat-cell *matCellDef="let element"> {{element.direccionEntrega | titlecase}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="pedido">
+                <th mat-header-cell *matHeaderCellDef> Edad </th>
+                <td mat-cell *matCellDef="let element"> {{element.pedido}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fechaEntrega">
+                <th mat-header-cell *matHeaderCellDef> Fecha de Entrega </th>
+                <td mat-cell *matCellDef="let element"> {{element.fechaEntrega|date:'dd/MM/yyyy'}} </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+            
+            <ng-container matColumnDef="editar">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button type="button" mat-raised-button color = "primary" (click)="editarPedido(element._id)">editar</button> 
+                </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="borrar">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element"> <button mat-raised-button color = "primary" (click)="borrarPedido(element)" >borrar </button> </td>
+                
+            </ng-container>
+              
+            
+    
+        </table>
+    
+    </div>
+</mat-card>

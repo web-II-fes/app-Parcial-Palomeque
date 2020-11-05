@@ -1,0 +1,32 @@
+<h1>Formulario de Clientes</h1>
+
+<form [formGroup]= 'formCliente' (ngSubmit)= "submit">
+    <div class="datosCliente">
+
+        <mat-form-field appearence="outline">
+            <mat-label>Nombre del Cliente</mat-label>
+            <input matInput type="text" formControlName="nombreCliente">
+        </mat-form-field>
+
+        <mat-form-field appearence="outline">
+            <mat-label>Direccion de Entrega</mat-label>
+            <input matInput type="text" formControlName="direccionEntrega">
+        </mat-form-field>
+
+        <mat-form-field appearence="outline">
+            <mat-label>Pedido</mat-label>
+            <input matInput type="tect" formControlName="pedido">
+        </mat-form-field>
+
+        <mat-form-field appearence="outline">
+            <mat-label>Fecha de Entrega</mat-label>
+            <input matInput type="date" formControlName="fechaEntrega">
+        </mat-form-field>
+
+    </div>
+
+    <div class="enviar">
+
+    <button type="submit" mat-raised-button (click)="enviar()">Enviar</button>
+    </div>
+</form>
